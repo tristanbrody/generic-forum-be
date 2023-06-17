@@ -5,6 +5,7 @@ const app = express();
 const { client, connectToDb } = require("./config.js");
 const userRouter = require("./routes/userRoutes.js");
 const forumRouter = require("./routes/forumRoutes.js");
+const rootRouter = require("./routes/rootRoute.js");
 const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -87,6 +88,7 @@ app.use(
 // });
 app.use("/users", userRouter);
 app.use("/forum", forumRouter);
+app.use("/", rootRouter);
 // app.set("view engine", "ejs");
 
 async function main() {
